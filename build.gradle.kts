@@ -34,6 +34,8 @@ tasks.withType<JavaExec>().configureEach {
     jvmArgs("--enable-preview")
 }
 
+tasks.named("check") { dependsOn("jacocoTestReport") }
+
 tasks.jacocoTestReport {
     dependsOn("test")
 
