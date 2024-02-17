@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    jacoco
 }
 
 group = "pl.andrzejressel"
@@ -31,4 +32,14 @@ tasks.withType<Test>().configureEach {
 
 tasks.withType<JavaExec>().configureEach {
     jvmArgs("--enable-preview")
+}
+
+tasks.jacocoTestReport {
+    dependsOn("test")
+
+    executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
