@@ -1,0 +1,1 @@
+# pulumi-java-string-interpolator
