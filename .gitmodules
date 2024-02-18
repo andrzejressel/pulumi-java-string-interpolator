@@ -1,4 +1,4 @@
 [submodule ".plugin"]
 	path = .plugin
 	url = https://github.com/andrzejressel/common-gradle-plugin.git
-    branch = main
+	branch = main
