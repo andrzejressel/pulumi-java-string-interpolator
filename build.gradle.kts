@@ -31,13 +31,3 @@ tasks.withType<JavaCompile>().configureEach { options.compilerArgs.add("--enable
 tasks.withType<Test>().configureEach { jvmArgs("--enable-preview") }
 
 tasks.withType<JavaExec>().configureEach { jvmArgs("--enable-preview") }
-
-tasks.jacocoTestReport {
-  dependsOn("test")
-
-  executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
-  reports {
-    xml.required = true
-    html.required = true
-  }
-}
