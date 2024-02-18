@@ -1,10 +1,14 @@
+import pl.andrzejressel.deeplambdaserialization.buildplugin.License
+
 plugins {
     id("java")
-    jacoco
+    id("parent-plugin")
+    id("child-plugin")
 }
 
 group = "pl.andrzejressel"
-version = "1.0-SNAPSHOT"
+
+childPlugin { license = License.LGPL }
 
 repositories {
     mavenCentral()
@@ -33,8 +37,6 @@ tasks.withType<Test>().configureEach {
 tasks.withType<JavaExec>().configureEach {
     jvmArgs("--enable-preview")
 }
-
-tasks.named("check") { dependsOn("jacocoTestReport") }
 
 tasks.jacocoTestReport {
     dependsOn("test")

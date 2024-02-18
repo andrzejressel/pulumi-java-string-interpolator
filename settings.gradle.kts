@@ -13,3 +13,4 @@ if (!System.getenv("CI").isNullOrEmpty()) {
 
 rootProject.name = "pulumi-java-string-interpolator"
 
+includeBuild(".plugin")
